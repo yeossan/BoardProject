@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board List</title>
+    <link rel="stylesheet" th:href="@{/css/board.css}">
+</head>
+<body>
+<h1>Board List</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Created At</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="board : ${boards}">
+        <td th:text="${board.id}"></td>
+        <td><a th:href="@{'/view?id=' + ${board.id}}" th:text="${board.title}"></a></td>
+        <td th:text="${board.name}"></td>
+<!--        <td th:text="${board.createdAt}"></td>-->
+        <td th:text="${#temporals.format(board.createdAt, 'yyyy-MM-dd HH:mm:ss')}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <a th:href="@{'/writeform'}">글쓰기</a>
+    <br>
+    <a th:href="@{'/list?page=' + ${page - 1}}">Previous</a>
+    <span th:text="${page}"></span>
+    <a th:href="@{'/list?page=' + ${page + 1}}">Next</a>
+</div>
+
+</body>
+</html>

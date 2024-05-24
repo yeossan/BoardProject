@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board Details</title>
+    <link rel="stylesheet" th:href="@{/css/board.css}">
+</head>
+<body>
+<h1>Board Details</h1>
+
+<table border="1">
+    <tr>
+        <th>제목</th>
+        <td th:text="${board.title}"></td>
+    </tr>
+    <tr>
+        <th>작성자</th>
+        <td th:text="${board.name}"></td>
+    </tr>
+    <tr>
+        <th>내용</th>
+        <td th:text="${board.content}"></td>
+    </tr>
+    <tr>
+        <th>작성시간</th>
+        <td th:text="${board.createdAt}"></td>
+    </tr>
+</table>
+<a th:href="@{/list}">게시물목록</a>
+<a th:href="@{'/deleteform?id=' + ${board.id}}">게시글삭제</a>
+<a th:href="@{'/updateform?id=' + ${board.id}}">수정</a>
+</body>
+</html>

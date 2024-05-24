@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: BoardProject
+
+  datasource:
+    url: jdbc:mysql://localhost:3307/CONTAINER
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+server:
+  port: 80
